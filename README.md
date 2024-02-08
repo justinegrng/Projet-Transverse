@@ -5,5 +5,6 @@
 > Justine GARNUNG  
 > Yéléna SAINTE-ROSE BRUNY  
 > Maelle CHOLLET  
-> Virgile CURTAROLO OTAL
+> Virgile CURTAROLO OTAL  
+> Almha IMMACOLATO
 
