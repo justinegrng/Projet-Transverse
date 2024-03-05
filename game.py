@@ -2,6 +2,7 @@ import pygame
 from goal import Goal
 from ball import Ball
 
+
 class Game:
 
     def __init__(self):
