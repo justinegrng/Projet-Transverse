@@ -11,12 +11,12 @@ class Game:
     def handle_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                running = False
                 pygame.quit()
-                quit()
-            elif event.type == pygame.KEYUP:
+            elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
-                    self.goal.toggle_movement()
+                    self.ball.toggle_movement()
                     print("Ballon lancé")
 
     def update(self):
-        self.goal.move_goal()
+        self.ball.move()
