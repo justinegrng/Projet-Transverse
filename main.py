@@ -24,6 +24,8 @@ while running:
 
     game.handle_events()
 
+    game.goal.move_ball()
+
     game.update()
 
 if __name__ == "__main__":
