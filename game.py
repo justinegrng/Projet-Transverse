@@ -1,12 +1,15 @@
 import pygame
 from goal import Goal
 from ball import Ball
+from button import Button
 
 class Game:
 
     def __init__(self):
         self.goal = Goal()
         self.ball = Ball()
+        self.quit_button = Button((194, 255, 255), 550, 400, 100, 50, 'Quit')
+        #couleur du bouton, position x, position y, largeur, hauteur, texte, si vous voulez changer.
         self.goal_colors = [(21,131,223), (6,41,69), (241,188,160), (222,251,255)]
         #J'ai mis couleurs du gardien dans liste que le contour blanc, short bleu, peau beige et maillot bleu foncé
 
@@ -15,6 +18,10 @@ class Game:
             if event.type == pygame.QUIT:
                 running = False
                 pygame.quit()
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                if self.quit_button.clicked(pygame.mouse.get_pos()):
+                    running = False
+                    pygame.quit()
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     self.ball.toggle_movement()
@@ -35,17 +42,19 @@ class Game:
 
     def run_game(self):
         pygame.init()
-        pygame.display.set_caption("Penalty game")
+        pygame.display.set_caption("Tirs aux buts !")
         screen = pygame.display.set_mode((700,460))
         background = pygame.image.load('assets/background.png')
         game = Game()
         running = True
         while running:
-            screen.blit(background, (0, 0))
-            screen.blit(game.goal.image, game.goal.rect)
-            screen.blit(game.ball.image_redimensionnee, game.ball.rect)
-            pygame.display.flip()
-            game.handle_events()
-            game.goal.move_ball()
-            game.update()
+            if pygame.display.get_init():
+                screen.blit(background, (0, 0))
+                screen.blit(game.goal.image, game.goal.rect)
+                screen.blit(game.ball.image_redimensionnee, game.ball.rect)
+                self.quit_button.draw(screen)
+                pygame.display.flip()
+                game.handle_events()
+                game.goal.move_ball()
+                game.update()
         pygame.quit()
