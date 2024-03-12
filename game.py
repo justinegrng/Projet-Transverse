@@ -49,6 +49,7 @@ class Game:
         running = True
         while running:
             if pygame.display.get_init():
+            # vérifie si la fenêtre est ouverte car autrement il y a une erreur, même si elle impacte pas c'est mieux
                 screen.blit(background, (0, 0))
                 screen.blit(game.goal.image, game.goal.rect)
                 screen.blit(game.ball.image_redimensionnee, game.ball.rect)
