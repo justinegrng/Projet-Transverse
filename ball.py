@@ -26,4 +26,3 @@ class Ball(pygame.sprite.Sprite):
                 self.rect.x = self.start_x
                 self.rect.y = self.start_y
                 self.moving = False
-                
