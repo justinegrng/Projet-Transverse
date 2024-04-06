@@ -1,6 +1,6 @@
 import pygame
 from goal import Goal
-from ball import Ball
+from ball import Ball, get_shooting_speed
 from button import Button
 
 
@@ -43,6 +43,14 @@ class Game:
                         self.ball.moving = False
                         return
 
+    def speed_update(self):
+        """
+        vérifie si le bouton est toujours pressé et augmente la vitesse quand c'est le cas
+        """
+        button_pressed_time = Ball.handle_button_press(self.ball)
+        if button_pressed_time is not None:
+            self.ball.speed += get_shooting_speed(button_pressed_time)
+
     def run_game(self):
         pygame.init()
         pygame.display.set_caption("Tirs aux buts !")
@@ -60,5 +68,6 @@ class Game:
                 pygame.display.flip()
                 game.handle_events()
                 game.goal.move_ball()
+                game.speed_update()
                 game.update()
         pygame.quit()
