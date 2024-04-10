@@ -2,11 +2,11 @@
 [Lien vers le dépôt GitHub](https://github.com/justinegrng/Projet-Transverse.git) 
 
 ## Membres du projet
-> Justine GARNUNG  
-> Yéléna SAINTE-ROSE BRUNY  
-> Maelle CHOLLET  
-> Virgile CURTAROLO OTAL  
-> Almha IMMACOLATO
+> Justine GARNUNG [![linkedin](https://github.com/justinegrng/Projet-Transverse/assets/89320065/eba91f42-9ed4-4ef3-8502-ca4925d64d8f)](https://www.linkedin.com/in/justine-garnung-674571232/)  
+> Yéléna SAINTE-ROSE BRUNY [![linkedin](https://github.com/justinegrng/Projet-Transverse/assets/89320065/eba91f42-9ed4-4ef3-8502-ca4925d64d8f)](https://www.linkedin.com/in/yelesr/)  
+> Maelle CHOLLET [![linkedin](https://github.com/justinegrng/Projet-Transverse/assets/89320065/eba91f42-9ed4-4ef3-8502-ca4925d64d8f)](https://www.linkedin.com/in/maelle-chollet-b7632a293/)  
+> Virgile CURTAROLO OTAL [![linkedin](https://github.com/justinegrng/Projet-Transverse/assets/89320065/eba91f42-9ed4-4ef3-8502-ca4925d64d8f)](https://www.linkedin.com/in/virgile-curtarolo-otal-95261a293/)  
+> Almha IMMACOLATO [![linkedin](https://github.com/justinegrng/Projet-Transverse/assets/89320065/eba91f42-9ed4-4ef3-8502-ca4925d64d8f)](https://www.linkedin.com/in/almha-immacolato-2754b3293/)  
 
 ## Files organization
 > [!TIP]
