@@ -56,6 +56,6 @@ class Game:
                 self.quit_button.draw(screen)
                 pygame.display.flip()
                 game.handle_events()
-                game.goal.move_goal()
+                game.goal.move_ball()
                 game.update()
         pygame.quit()
