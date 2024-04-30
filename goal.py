@@ -12,7 +12,7 @@ class Goal(pygame.sprite.Sprite):
         self.direction = 1
         self.is_moving = True
 
-    def move_ball(self):
+    def move_goal(self):
         self.rect.x += self.speed * self.direction
         if self.rect.x >= 500:
             self.direction = -1
@@ -22,4 +22,3 @@ class Goal(pygame.sprite.Sprite):
 
     def toggle_movement(self):
         self.is_moving = False
-
