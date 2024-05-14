@@ -1,19 +1,29 @@
+from time import sleep
+
 import pygame
 from goal import Goal
 from ball import Ball
 from button import Button
+from trajectory import Trajectory
+from display import Display
 
 class Game:
 
     def __init__(self):
         self.goal = Goal()
         self.ball = Ball()
+        self.trajectory = Trajectory()
         self.quit_button = Button((194, 255, 255), 550, 400, 100, 50, 'Quit')
-        #couleur du bouton, position x, position y, largeur, hauteur, texte, si vous voulez changer.
-        self.goal_colors = [(21,131,223), (6,41,69), (241,188,160), (222,251,255)]
-        #J'ai mis couleurs du gardien dans liste que le contour blanc, short bleu, peau beige et maillot bleu foncé
+        # couleur du bouton, position x, position y, largeur, hauteur, texte, si vous voulez changer.
+        self.goal_colors = [(21, 131, 223), (6, 41, 69), (241, 188, 160), (222, 251, 255)]
+        # J'ai mis couleurs du gardien dans liste que le contour blanc, short bleu, peau beige et maillot bleu foncé
+        self.minimum_force = 10
+        self.display = Display()
+        self.force = 0
+        self.angle = 0
 
     def handle_events(self):
+        ball_position=[]
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
@@ -23,39 +33,36 @@ class Game:
                     running = False
                     pygame.quit()
             elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    self.trajectory.game_steering_angle -= 1
+                elif event.key == pygame.K_RIGHT:
+                    self.trajectory.game_steering_angle += 1
                 if event.key == pygame.K_SPACE:
-                    self.ball.toggle_movement()
+                    self.angle = 90
+                    self.force = 45
 
-    def update(self):
-        self.ball.move()
-        if self.ball.rect.colliderect(self.goal.rect):
-            for x in range(self.ball.rect.width):
-                for y in range(self.ball.rect.height):
-                    ball_x = self.ball.rect.x + x - self.goal.rect.x
-                    ball_y = self.ball.rect.y + y - self.goal.rect.y
-                    if (0 <= ball_x < self.goal.image.get_width() and 0 <= ball_y < self.goal.image.get_height() and self.goal.image.get_at((ball_x, ball_y)) in self.goal_colors):
-                        print("Le gardien a arrêté le ballon !")
-                        self.ball.rect.x = self.ball.start_x
-                        self.ball.rect.y = self.ball.start_y
-                        self.ball.moving = False
-                        return
 
     def run_game(self):
-        pygame.init()
         pygame.display.set_caption("Tirs aux buts !")
-        screen = pygame.display.set_mode((700,460))
-        background = pygame.image.load('assets/background.png')
-        game = Game()
+        screen = pygame.display.set_mode((700, 460))
         running = True
         while running:
             if pygame.display.get_init():
-            # vérifie si la fenêtre est ouverte car autrement il y a une erreur, même si elle impacte pas c'est mieux
-                screen.blit(background, (0, 0))
-                screen.blit(game.goal.image, game.goal.rect)
-                screen.blit(game.ball.image_redimensionnee, game.ball.rect)
+                self.display.display_background()
+                # vérifie si la fenêtre est ouverte car autrement il y a une erreur, même si elle impacte pas c'est mieux
+                self.display.display_goal(self.goal)
+                self.display.display_ball(self.ball)
+                self.display.display_quit_button(self.quit_button)
+                self.display.update_display()
                 self.quit_button.draw(screen)
-                pygame.display.flip()
-                game.handle_events()
-                game.goal.move_ball()
-                game.update()
+                # mise à jour des événements du jeu
+                self.handle_events()
+                self.goal.move_goal()
+                self.trajectory.update_trajectory_angle()
+                self.trajectory.update_strike_force()
+                if self.angle != 0:
+                    self.ball.moveBall(self.angle, self.force)
+                    self.display.display_ball(self.ball)
+                sleep(0.01)
+                #self.ball.update_ball()
         pygame.quit()
