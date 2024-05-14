@@ -1,6 +1,8 @@
 import pygame
 from goal import Goal
 import math
+from time import sleep
+
 from trajectory import Trajectory
 
 
@@ -18,11 +20,14 @@ class Ball(pygame.sprite.Sprite):
         self.image_redimensionnee = pygame.transform.scale(self.image, (self.width, self.height))
         self.rect = self.image_redimensionnee.get_rect()
         self.start_x = 320
-        self.start_y = 385
+        self.start_y = 75
         self.rect.x = self.start_x
         self.rect.y = self.start_y
         self.moving = False
-
+        self.speed_x = 75
+        self.speed_y = 75
+        self.delta_t = 0.4
+        self.shrinkage_coefficient = 2
 
     def update_ball(self):
         if self.rect.colliderect(self.goal.rect):
@@ -38,3 +43,31 @@ class Ball(pygame.sprite.Sprite):
                         self.rect.y = self.start_y
                         self.moving = False
                         return
+
+    def resize_image(self):
+        self.width = self.width * self.shrinkage_coefficient
+        self.height = self.height * self.shrinkage_coefficient
+        self.image_redimensionnee = pygame.transform.scale(self.original_image, (self.width, self.height))
+        self.rect = self.image_redimensionnee.get_rect(center=self.rect.center)
+
+    def ball_trajectory(self, angle, force):
+        ball_position = []
+        time = 0
+        while time < 100:
+            time = self.moveBall(angle, force)
+
+        print(ball_position)
+
+        self.rect.x = self.start_x
+        self.rect.y = self.start_y
+        self.width = self.start_width
+        self.height = self.start_height
+
+        return ball_position
+
+    def moveBall(self, angle, force):
+        self.rect.x = self.rect.x + (self.speed_x * math.cos(math.radians(force)) * self.delta_t) * math.cos(
+            math.radians(angle))
+        self.rect.y = self.rect.y + self.delta_t * (self.speed_y - (9.81 * self.delta_t))
+        self.speed_y -= 9.81 * self.delta_t
+        print(self.speed_y, self.rect.y)

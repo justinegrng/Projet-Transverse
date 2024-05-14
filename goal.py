@@ -1,6 +1,4 @@
 import pygame
-
-
 class Goal(pygame.sprite.Sprite):
 
     def __init__(self):
