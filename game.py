@@ -16,7 +16,9 @@ class Game:
         self.trajectory = Trajectory()
         self.quit_button = Button((194, 255, 255), 550, 400, 100, 50, 'Quit')
         # couleur du bouton, position x, position y, largeur, hauteur, texte, si vous voulez changer.
+
         # self.goal_colors = [(21, 131, 223), (6, 41, 69), (241, 188, 160), (222, 251, 255)]
+
         # J'ai mis couleurs du gardien dans liste que le contour blanc, short bleu, peau beige et maillot bleu foncé
         self.minimum_force = 10
         self.display = Display()
@@ -24,7 +26,9 @@ class Game:
         self.angle = 0
 
     def handle_events(self):
+
         ball_position = []
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
@@ -39,8 +43,10 @@ class Game:
                 elif event.key == pygame.K_RIGHT:
                     self.trajectory.game_steering_angle += 1
                 if event.key == pygame.K_SPACE:
+
                     self.angle = 0
                     self.force = 70 # pb <80
+
 
     def run_game(self):
         pygame.display.set_caption("Tirs aux buts !")
@@ -57,6 +63,7 @@ class Game:
                 self.quit_button.draw(screen)
                 # mise à jour des événements du jeu
                 self.handle_events()
+
                 self.trajectory.update_trajectory_angle()
                 self.trajectory.update_strike_force()
                 if self.force != 0 and self.ball.moving and not self.ball.colision:
@@ -77,5 +84,6 @@ class Game:
                     self.force = 0
                     self.angle = 0
                 sleep(0.0001)
+
 
         pygame.quit()

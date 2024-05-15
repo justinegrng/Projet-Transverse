@@ -21,6 +21,7 @@ class Ball(pygame.sprite.Sprite):
         self.rect = self.image_redimensionnee.get_rect()
         self.start_x = 320
         self.start_y = 75
+        
         self.rect.x = self.start_x
         self.rect.y = self.start_y
         self.moving = True

@@ -3,7 +3,7 @@ class Goal(pygame.sprite.Sprite):
 
     def __init__(self):
         super().__init__()
-        self.speed = 2.5
+        self.speed = 2.25
         self.image = pygame.image.load('assets/gardien.png')
         self.rect = self.image.get_rect()
         self.rect.x = 275
