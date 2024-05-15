@@ -18,16 +18,19 @@ class Trajectory(pygame.sprite.Sprite):
     def trajectory_left_right(self):
         keys = pygame.key.get_pressed()
         if keys[pygame.K_RIGHT]:
-            self.game_steering_angle += 0.5
+
+            self.game_steering_angle += 0.2
         if keys[pygame.K_LEFT]:
-            self.game_steering_angle -= 0.5
+            self.game_steering_angle -= 0.2
+
 
     def strike_force_calculation(self):
         keys = pygame.key.get_pressed()
         if keys[pygame.K_UP]:
-            self.game_time_up_pressed += 0.5
+            self.game_time_up_pressed += 0.2
         else:
-            self.game_time_up_released += 0.5
+            self.game_time_up_released += 0.2
+
 
     def update_strike_force(self):
         self.strike_force_calculation()
@@ -40,9 +43,10 @@ class Trajectory(pygame.sprite.Sprite):
     #print(self.strike_force)
 
     def update_trajectory_angle(self):
-        self.trajectory_left_right()
+        """self.trajectory_left_right()
         if self.game_steering_angle > 90:
             self.game_steering_angle = 90
         elif self.game_steering_angle < -90:
-            self.game_steering_angle = -90
-        #print(self.game_steering_angle)
+            self.game_steering_angle = -90"""
+        self.game_steering_angle=45
+

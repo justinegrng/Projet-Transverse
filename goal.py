@@ -20,3 +20,4 @@ class Goal(pygame.sprite.Sprite):
                 self.direction = 1
         else:
             self.speed=0
+
