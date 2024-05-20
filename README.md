@@ -43,7 +43,7 @@ Dans le cadre de notre projet transverse qui allie la programmation en python et
 
 Ce jeu consiste donc à lancer un ballon en paramétrant une direction et une force de tir afin de marquer un but dans la cage de foot tout en évitant le gardien.
 
-Pour complexier le jeu, nous avons mis le gardien en mouvement avec une vitesse constante.
+Pour complexifier le jeu, nous avons mis le gardien en mouvement avec une vitesse constante.
 
 ## Comment jouer à FC EFREI ?
 
@@ -72,6 +72,6 @@ Si le ballon touche le gardien, vous avez perdu : ❌
 Si le ballon rentre dans la cage : Bravo ! Vous avez gagné ! 🥇
 
 > [!NOTE]
-> Nous avons fait le choix d’avoir une interface graphique de face et non de profil. Nous avons fait ce choix pour que l’on ait cette impression de profondeur et de s’imaginer dans le décor. Pour respecter notre choix, nous avons du effectuer une rotation de plan afin que notre jeu reste dans une dimension en 2D tout en donnant l’impression d’être en 3D.
+> Nous avons fait le choix d’avoir une interface graphique de face et non de profil. Nous avons fait ce choix pour que l’on ait cette impression de profondeur et de s’imaginer dans le décor. Pour respecter notre choix, nous avons dû effectuer une rotation de plan afin que notre jeu reste dans une dimension en 2D tout en donnant l’impression d’être en 3D.
 
 
