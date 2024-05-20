@@ -72,8 +72,4 @@ Si le ballon rentre dans la cage : Bravo ! Vous avez gagné ! 🥇
 > [!IMPORTANT]
 > Peut être utile.
 
-> [!WARNING]
-> Peut être utile.
 
-> [!CAUTION]
-> Peut être utile.
