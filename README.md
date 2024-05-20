@@ -63,7 +63,7 @@ Pour cela, vous pouvez paramétrer votre tir :
 
 > Pour une direction de tir optimale, appuyez sur la touche "flèche gauche" ou "flèche droite" pour diriger votre tir.
   
-> Pour une force de tir adaptée, maintenez appuyée la touche "flèche haut" plus ou moins longtemps pour une force plus ou moins forte.
+> Pour une force de tir adaptée, maintenez appuyée la touche "flèche haut" plus ou moins longtemps pour une force plus ou moins forte. Pour avoir une indication de la force délivrée par votre tir, nous avons placé une jauge au dessus de la cage.
   
 Il ne vous reste plus qu'à appuyer sur la touche "espace" pour lancer le ballon !
 
