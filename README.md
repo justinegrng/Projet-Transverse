@@ -20,15 +20,20 @@
   
 - `main.py`
 - `game.py`
+- `display.py`
 - `ball.py`
 - `goal.py`
 - `button.py`
+- `trajectory.py`
 <details>
 <summary> 📁 assets </summary>
   
 - `background.PNG`
 - `ballon.PNG`
 - `gardien.PNG`
+- `button_credits.PNG`
+- `button_play.PNG`
+- `quit_button.PNG`
 </details>
 </details>
 
