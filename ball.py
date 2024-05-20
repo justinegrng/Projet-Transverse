@@ -1,7 +1,6 @@
 import pygame
 from goal import Goal
 import math
-from trajectory import Trajectory
 
 
 class Ball(pygame.sprite.Sprite):
@@ -9,7 +8,6 @@ class Ball(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
         self.goal = Goal()
-        self.trajectory = Trajectory()
         self.image = pygame.image.load('assets/ballon.png')
         self.original_image = self.image.copy()
         self.start_width = 70
@@ -28,22 +26,21 @@ class Ball(pygame.sprite.Sprite):
         self.float_x = self.start_x
         self.float_y = self.start_y
 
-        self.moving = True
+        self.moving = False
         self.speed_x = 0
         self.speed_y = 0
-        self.delta_t = 0.07
-        self.shrinkage_coefficient = 0.996
+        self.delta_t = 0.04
+        self.shrinkage_coefficient = 0.997
         self.iteration = False
         self.collision = False
         self.angle_rotation = 0
-
+        self.score = 0
 
     def resize_image(self):
         self.width = self.width * self.shrinkage_coefficient
         self.height = self.height * self.shrinkage_coefficient
         self.image_redimensionnee = pygame.transform.scale(self.original_image, (self.width, self.height))
         self.rect = self.image_redimensionnee.get_rect(center=self.rect.center)
-
 
     def ball_rotation(self):
         self.angle_rotation += 1
@@ -84,10 +81,9 @@ class Ball(pygame.sprite.Sprite):
                             if color in self.goal.goal_colors:
                                 self.collision = True
                                 self.moving = False
-                                self.trajectory.reseting_trajectoire()
                                 print("Collision detected at", (goal_x, goal_y))
+                                self.score += 1
                                 return
-
 
     def reseting_settings(self):
         self.rect.x = self.start_x
