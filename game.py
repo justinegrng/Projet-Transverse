@@ -17,7 +17,7 @@ class Game:
         self.trajectory = Trajectory()
         self.pressed = {}
         self.quit_button = Button((194, 255, 255), 550, 400, 100, 50, 'Quit')
-        self.gauge = Gauge((0, 255, 0), 440, 50, 10, 50)
+        self.gauge = Gauge((0, 255, 0), 440, 50, 10, 50, self.trajectory.strike_force)
         self.display = Display(self.ball, self.goal)
         self.force = 0
         self.angle = 0
@@ -45,6 +45,7 @@ class Game:
                 if event.key == pygame.K_SPACE:
                     self.angle = self.trajectory.game_steering_angle
                     self.force = self.trajectory.strike_force
+                    self.gauge = Gauge((0, 255, 0), 440, 50, 10, 50, self.force)
             elif event.type == pygame.KEYUP:
                 if event.key == pygame.K_RIGHT:
                     self.pressed[event.key] = False
@@ -83,7 +84,7 @@ class Game:
                                 if self.ball.collision:
                                     self.trajectory.reseting_trajectoire()
                         else:
-                            if not self.ball.moving and self.ball.float_x == self.ball.start_x and self.ball.float_y == self.ball.start_y:
+                            if not self.ball.moving :
                                 if self.pressed.get(pygame.K_RIGHT) or self.pressed.get(pygame.K_LEFT):
                                     self.trajectory.update_trajectory_angle()
                                 if self.pressed.get(pygame.K_UP):
@@ -94,6 +95,7 @@ class Game:
                             self.trajectory.reseting_trajectoire()
                             sleep(1)
                     else:
+                        self.gauge = Gauge((0, 255, 0), 440, 50, 10, 50, self.trajectory.strike_force)
                         self.ball.reseting_settings()
                         self.goal.move_goal()
                         self.force = 0
