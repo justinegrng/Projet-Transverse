@@ -8,6 +8,7 @@ class Ball(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
         self.goal = Goal()
+        self.trajectory = Trajectory()
         self.image = pygame.image.load('assets/ballon.png')
         self.original_image = self.image.copy()
         self.start_width = 70
@@ -26,6 +27,7 @@ class Ball(pygame.sprite.Sprite):
         self.float_x = self.start_x
         self.float_y = self.start_y
 
+
         self.moving = False
         self.speed_x = 0
         self.speed_y = 0
@@ -35,6 +37,7 @@ class Ball(pygame.sprite.Sprite):
         self.collision = False
         self.angle_rotation = 0
         self.score = 0
+
 
     def resize_image(self):
         self.width = self.width * self.shrinkage_coefficient
@@ -81,6 +84,7 @@ class Ball(pygame.sprite.Sprite):
                             if color in self.goal.goal_colors:
                                 self.collision = True
                                 self.moving = False
+
                                 print("Collision detected at", (goal_x, goal_y))
                                 self.score += 1
                                 return

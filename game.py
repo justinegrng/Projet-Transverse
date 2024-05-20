@@ -17,7 +17,9 @@ class Game:
         self.trajectory = Trajectory()
         self.pressed = {}
         self.quit_button = Button((194, 255, 255), 550, 400, 100, 50, 'Quit')
+
         self.gauge = Gauge((0, 255, 0), 440, 50, 10, 50, self.trajectory.strike_force)
+
         self.display = Display(self.ball, self.goal)
         self.force = 0
         self.angle = 0
@@ -25,7 +27,7 @@ class Game:
         self.running = True
 
     def handle_events(self):
-        for event in pygame.event.get():
+      for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
                 pygame.quit()
@@ -46,11 +48,13 @@ class Game:
                     self.angle = self.trajectory.game_steering_angle
                     self.force = self.trajectory.strike_force
                     self.gauge = Gauge((0, 255, 0), 440, 50, 10, 50, self.force)
+
             elif event.type == pygame.KEYUP:
                 if event.key == pygame.K_RIGHT:
                     self.pressed[event.key] = False
                 if event.key == pygame.K_LEFT:
                     self.pressed[event.key] = False
+
 
     def run_game(self):
         pygame.display.set_caption("Tirs aux buts !")

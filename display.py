@@ -37,11 +37,12 @@ class Display:
         pygame.display.flip()
 
     def display_ball_and_goal(self):
+
         if self.trajectory.strike_force >= 80:
+
             if self.ball.width < 50 or self.ball.rect.y < 120 or self.ball.rect.y > 400 or self.ball.collision:
                 self.display_ball()
                 self.display_goal()
         else:
             self.display_goal()
             self.display_ball()
-
