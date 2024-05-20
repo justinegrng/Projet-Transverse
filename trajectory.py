@@ -20,6 +20,7 @@ class Trajectory(pygame.sprite.Sprite):
         if keys[pygame.K_LEFT]:
             self.game_steering_angle += 0.3
 
+
     def strike_force_calculation(self):
         keys = pygame.key.get_pressed()
         if keys[pygame.K_UP]:

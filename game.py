@@ -26,6 +26,7 @@ class Game:
         self.angle = 0
 
     def handle_events(self):
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
@@ -42,6 +43,7 @@ class Game:
                 if event.key == pygame.K_UP:
                     self.pressed[event.key] = True
                 if event.key == pygame.K_SPACE:
+
                     self.angle = self.trajectory.game_steering_angle
                     self.force = 80
             elif event.type == pygame.KEYUP:
@@ -49,6 +51,7 @@ class Game:
                     self.pressed[event.key] = False
                 if event.key == pygame.K_LEFT:
                     self.pressed[event.key] = False
+
 
     def run_game(self):
         pygame.display.set_caption("Tirs aux buts !")
@@ -64,6 +67,7 @@ class Game:
                 self.quit_button.draw(screen)
                 # mise à jour des événements du jeu
                 self.handle_events()
+
                 if self.pressed.get(pygame.K_RIGHT) or self.pressed.get(pygame.K_LEFT):
                     self.trajectory.update_trajectory_angle()
                 if self.pressed.get(pygame.K_UP):
@@ -82,6 +86,7 @@ class Game:
                         sleep(1)
                 else:
                     self.ball.reseting_settings()
+
 
                     self.goal.move_goal()
                     self.force = 0

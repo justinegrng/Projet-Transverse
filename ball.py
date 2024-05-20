@@ -37,11 +37,13 @@ class Ball(pygame.sprite.Sprite):
         self.collision = False
         self.angle_rotation = 0
 
+
     def resize_image(self):
         self.width = self.width * self.shrinkage_coefficient
         self.height = self.height * self.shrinkage_coefficient
         self.image_redimensionnee = pygame.transform.scale(self.original_image, (self.width, self.height))
         self.rect = self.image_redimensionnee.get_rect(center=self.rect.center)
+
 
     def ball_rotation(self):
         self.angle_rotation += 1
@@ -86,6 +88,7 @@ class Ball(pygame.sprite.Sprite):
                                 print("Collision detected at", (goal_x, goal_y))
                                 return
 
+
     def reseting_settings(self):
         self.rect.x = self.start_x
         self.rect.y = self.start_y
@@ -94,9 +97,11 @@ class Ball(pygame.sprite.Sprite):
         self.width = self.start_width
         self.height = self.start_height
         self.image_redimensionnee_rotate = pygame.transform.scale(self.original_image, (self.width, self.height))
+
         self.resize_image()
         self.speed_x = 0
         self.speed_y = 0
         self.iteration = False
+
         self.collision = False
         self.moving = True
