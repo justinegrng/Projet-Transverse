@@ -69,11 +69,4 @@ Si le ballon rentre dans la cage : Bravo ! Vous avez gagné ! 🥇
 > [!NOTE]
 > Nous avons fait le choix d’avoir une interface graphique de face et non de profil. Nous avons fait ce choix pour que l’on ait cette impression de profondeur et de s’imaginer dans le décor. Pour respecter notre choix, nous avons du effectuer une rotation de plan afin que notre jeu reste dans une dimension en 2D tout en donnant l’impression d’être en 3D.
 
-> [!IMPORTANT]
-> Peut être utile.
 
-> [!WARNING]
-> Peut être utile.
-
-> [!CAUTION]
-> Peut être utile.
