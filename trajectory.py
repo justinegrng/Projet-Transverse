@@ -30,7 +30,6 @@ class Trajectory(pygame.sprite.Sprite):
         else:
             self.strike_force -= 0.01
 
-
     def update_strike_force(self):
         self.strike_force_calculation()
         if self.strike_force > self.maximal_force:
@@ -44,6 +43,7 @@ class Trajectory(pygame.sprite.Sprite):
             self.game_steering_angle = self.maximal_angle
         elif self.game_steering_angle < -self.maximal_angle:
             self.game_steering_angle = -self.maximal_angle
+        print(self.game_steering_angle)
 
     def reseting_trajectoire(self):
         self.game_steering_angle = self.start_steering_angle
