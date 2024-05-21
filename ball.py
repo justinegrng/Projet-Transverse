@@ -1,7 +1,7 @@
 import pygame
 from goal import Goal
 import math
-
+from trajectory import Trajectory
 
 class Ball(pygame.sprite.Sprite):
 
