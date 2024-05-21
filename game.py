@@ -104,7 +104,6 @@ class Game:
                         self.goal.move_goal()
                         self.force = 0
                         self.angle = 0
-                    print(self.ball.score)
                     sleep(0.0001)
             else:
                 self.display.display_start_menu()
